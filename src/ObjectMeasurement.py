@@ -37,17 +37,17 @@ while True:
                 cv2.polylines(img2,[obj[2]],True,(0,255,0),2)
                 newPoints = utils.reorder(obj[2])
                 # ACHANDO AS DISTANCIAS ESTRE UM OBJETO RETANGULAR
-                newW = round( utils.findDistance(newPoints[0][0]//scale,nPoints[1][0]//scale),1) #Dividir pelo scale pra ficar correto )
-                newH = round( utils.findDistance(newPoints[0][0]//scale,nPoints[2][0]//scale),1) #Dividir pelo scale pra ficar correto )
+                newW = round( utils.findDistance(newPoints[0][0]//scale,newPoints[1][0]//scale),1) #Dividir pelo scale pra ficar correto )
+                newH = round( utils.findDistance(newPoints[0][0]//scale,newPoints[2][0]//scale),1) #Dividir pelo scale pra ficar correto )
                 
-                cv2.arrowedLine(imgContours2, (nPoints[0][0][0], nPoints[0][0][1]), (nPoints[1][0][0], nPoints[1][0][1]),
+                cv2.arrowedLine(img2, (newPoints[0][0][0], newPoints[0][0][1]), (newPoints[1][0][0], newPoints[1][0][1]),
                                 (255, 0, 255), 3, 8, 0, 0.05)
-                cv2.arrowedLine(imgContours2, (nPoints[0][0][0], nPoints[0][0][1]), (nPoints[2][0][0], nPoints[2][0][1]),
+                cv2.arrowedLine(img2, (newPoints[0][0][0], newPoints[0][0][1]), (newPoints[2][0][0], newPoints[2][0][1]),
                                 (255, 0, 255), 3, 8, 0, 0.05)
                 x, y, w, h = obj[3]
-                cv2.putText(imgContours2, '{}cm'.format(nW), (x + 30, y - 10), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1.5,
+                cv2.putText(img2, '{}cm'.format(newW), (x + 30, y - 10), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1.5,
                             (255, 0, 255), 2)
-                cv2.putText(imgContours2, '{}cm'.format(nH), (x - 70, y + h // 2), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1.5,
+                cv2.putText(img2, '{}cm'.format(newH), (x - 70, y + h // 2), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1.5,
                             (255, 0, 255), 2)
 
         cv2.imshow('A4',img2)

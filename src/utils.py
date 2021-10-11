@@ -59,6 +59,6 @@ def warpImg (img,points,widht,height,pad=20):
     return imgWarp
 
 def findDistance(pts1,pts2):
-    return ((pts2[0]-pts1[0])^2 + (pts2[1]-pts1[1])^2)^0.5 #Acha a distancia entre dois pontos pelo teorema de pitagoras
+    return ((pts2[0]-pts1[0])**2 + (pts2[1]-pts1[1])**2)**0.5 #Acha a distancia entre dois pontos pelo teorema de pitagoras
     
             
