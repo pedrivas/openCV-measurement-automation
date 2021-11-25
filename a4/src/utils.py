@@ -1,13 +1,14 @@
 import cv2
 import numpy as np
 
-def getContours(img,threshold=[100,100],showCanny=False,minArea=1000,filter=0,draw=False):
+def getContours(img,threshold=[100,100],showCanny=True,minArea=1000,filter=0,draw=False):
     imgGray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
     imgBlur = cv2.GaussianBlur(imgGray,(5,5),1)
     imgCanny = cv2.Canny(imgBlur,threshold[0],threshold[1])
     kernel = np.ones((5,5))
     imgDial = cv2.dilate(imgCanny,kernel,iterations=3)
     imgThreshold = cv2.erode(imgDial,kernel,iterations=2)
+
     if showCanny:cv2.imshow('Canny', imgThreshold)
     
     contours,hierarchy = cv2.findContours(imgThreshold,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
