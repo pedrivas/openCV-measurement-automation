@@ -3,7 +3,6 @@ from __future__ import print_function
 
 from scipy.spatial import distance as dist
 import numpy as np
-import cv2
 from imutils import perspective
 from imutils import contours
 import argparse
@@ -90,7 +89,7 @@ colors = ((0, 0, 255), (240, 0, 159), (255, 0, 0), (255, 255, 0))
 # loop over the contours individually
 for (i, c) in enumerate(cnts):
 	# if the contour is not sufficiently large, ignore it
-	if cv2.contourArea(c) < 250:
+	if cv2.contourArea(c) < 50:
 		continue
 
 	# compute the rotated bounding box of the contour, then
@@ -126,6 +125,6 @@ for (i, c) in enumerate(cnts):
 	cv2.putText(image, "Object #{}".format(i + 1),
 				(int(rect[0][0] - 15), int(rect[0][1] - 15)),
 				cv2.FONT_HERSHEY_SIMPLEX, 0.55, (255, 255, 255), 2)
-# show the image
-cv2.imshow("Image", image)
-cv2.waitKey(0)
+	# show the image
+	cv2.imshow("Image", image)
+	cv2.waitKey(0)
