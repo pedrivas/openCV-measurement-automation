@@ -45,7 +45,7 @@ pixelsPerMetric = None
 # loop over the contours individually
 for c in cnts:
 	# if the contour is not sufficiently large, ignore it
-	if cv2.contourArea(c) < 100:
+	if cv2.contourArea(c) < 250:
 		continue
 
 	# compute the rotated bounding box of the contour

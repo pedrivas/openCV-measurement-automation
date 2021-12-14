@@ -5,7 +5,7 @@ BRIGHTNESS = 10
 WIDTH = 3
 HEIGHT = 4
 
-webcam = True
+webcam = False
 path = '../assets/1.png'
 cap = cv2.VideoCapture(0)
 cap.set(BRIGHTNESS,10)
