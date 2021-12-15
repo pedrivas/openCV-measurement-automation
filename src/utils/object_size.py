@@ -148,4 +148,4 @@ class MeasureObject:
                             0.65, (255, 255, 255), 2)
             # show the output image
             cv2.imshow("Image", orig)
-            cv2.waitKey(1)
+            cv2.waitKey(5)
